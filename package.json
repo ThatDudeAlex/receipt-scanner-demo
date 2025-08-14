@@ -10,6 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.1",
+    "@mui/material": "^7.3.1",
+    "axios": "^1.11.0",
+    "bootstrap": "^5.3.7",
+    "dayjs": "^1.11.13",
+    "firebase": "^12.1.0",
+    "framer-motion": "^12.23.12",
+    "mindee": "^4.29.0-rc5",
+    "parse-multipart": "^1.0.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
