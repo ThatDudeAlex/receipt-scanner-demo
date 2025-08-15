@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import LoadingSpinner from './LoadingSpinner'
 import StartingView from './StartingView'
 import PhotoUploaderView from './PhotoUploaderView'
-// import ReviewInfoView from './ReviewInfoView'
+import ReviewInfoView from './ReviewInfoView'
 // import UploadedSuccessfully from './UploadedSuccessfully'
 import { useFormCardState } from '../hooks/useFormCardState'
 
@@ -40,8 +40,8 @@ export default function FormCard() {
                         handleReview={handleReview}
                     />
                 )
-            // case 3:
-            //     return <ReviewInfoView onBack={handleBack} receipt={receipt} />
+            case 3:
+                return <ReviewInfoView handleBack={handleBack} receipt={receipt} />
             // case 4:
             //     return <UploadedSuccessfully isSubmitting={loading} onDone={handleCompletion} />
             default:

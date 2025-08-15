@@ -5,7 +5,7 @@ import {
 import { formatMoney, formatDateTime, safeText } from './utils/formatters'
 
 export default React.memo(function ReviewInfoView({
-    onBack,
+    handleBack,
     receipt,
 }) {
     // Graceful empty state if parsing hasn’t produced a receipt yet
@@ -20,7 +20,7 @@ export default React.memo(function ReviewInfoView({
                 </CardContent>
                 <CardActions>
                     <Box display="flex" justifyContent="flex-start" width="100%">
-                        <Button variant="outlined" onClick={onBack} size="large">Back</Button>
+                        <Button variant="outlined" onClick={handleBack} size="large">Back</Button>
                     </Box>
                 </CardActions>
             </>
@@ -56,7 +56,7 @@ export default React.memo(function ReviewInfoView({
 
             <CardActions>
                 <Box display="flex" justifyContent="space-between" width="100%">
-                    <Button variant="outlined" onClick={onBack} size="large">Back</Button>
+                    <Button variant="outlined" onClick={handleBack} size="large">Back</Button>
                     <Button variant="contained" size="large" type="submit">Submit</Button>
                 </Box>
             </CardActions>
