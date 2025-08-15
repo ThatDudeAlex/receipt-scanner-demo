@@ -1,5 +1,7 @@
 const axios = require('axios')
 const FormData = require('form-data')
+const { getOrRefreshTokens } = require("./getOrRefreshTokens");
+
 
 exports.handler = async function (event) {
     if (event.httpMethod !== 'POST') {
@@ -12,9 +14,10 @@ exports.handler = async function (event) {
     }
 
     try {
+        const { accessToken } = await getOrRefreshTokens();
+
         const baseUrl = process.env.DEV_BASE_URL
         const realmId = process.env.DEV_REALM_ID
-        const accessToken = process.env.QBO_ACCESS_TOKEN
         const minorVersion = '65'
 
         const fileBuffer = Buffer.from(imgBase64, 'base64')
@@ -42,7 +45,7 @@ exports.handler = async function (event) {
 
         return { statusCode: 200, body: JSON.stringify(data) }
     } catch (err) {
-        console.error('QBO upload failed:', err.response?.data || err.message)
+        console.error('Receipt upload failed:', err.response?.data || err.message)
         return {
             statusCode: err.response?.status || 500,
             body: JSON.stringify({ error: 'Failed to upload & attach receipt', details: err.response?.data || err.message })
