@@ -10,7 +10,7 @@ A demo web application that allows users to upload receipt images, parse key det
 - **Upload receipts** from your device
 - **OCR parsing** with Mindee API to extract vendor, date, and amount
 - **Secure QuickBooks API integration** to create and attach expenses
-- **Frontend built with React + Vite**
+- **Frontend built with React + MUI**
 - **Serverless backend** with Netlify Functions
 - **Firestore** for storing OAuth tokens securely
 
