@@ -30,10 +30,10 @@ export async function createExpense(params) {
     return res.json()
 }
 
-export async function uploadReceipt(expenseId, imgBlob) {
+export async function uploadReceipt(purchaseId, imgBlob) {
     const tokens = await getTokens()
     const form = new FormData()
-    form.append('expenseId', expenseId)
+    form.append('purchaseId', purchaseId)
     form.append('document', imgBlob, 'receipt.jpg')
 
     const res = await fetch(`${basePath}uploadReceipt`, { method: 'POST', body: form })

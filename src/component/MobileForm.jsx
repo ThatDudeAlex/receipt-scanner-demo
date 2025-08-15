@@ -10,7 +10,7 @@ import { useFormCardState } from '../hooks/useFormCardState'
 export default function FormCard() {
     const {
         loading, view, direction,
-        jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt, expenseId,
+        jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt, purchaseId,
         setName, setReceiptType, setSelectedJobSite, setPhotos, setReceipt,
         handleBack, handleForward, handleReview, handleCompletion, submitForm,
     } = useFormCardState()
@@ -43,7 +43,7 @@ export default function FormCard() {
             case 3:
                 return <ReviewInfoView handleBack={handleBack} receipt={receipt} />
             case 4:
-                return <UploadedSuccessfully isSubmitting={loading} showId={expenseId} onDone={handleCompletion} />
+                return <UploadedSuccessfully isSubmitting={loading} showId={purchaseId} onDone={handleCompletion} />
             default:
                 return null
         }

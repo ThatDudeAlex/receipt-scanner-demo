@@ -19,7 +19,7 @@ export function useFormCardState() {
     const [photos, setPhotos] = useState([])
     const [backgroundImg, setBackgroundImg] = useState(null)
     const [receipt, setReceipt] = useState(null)
-    const [expenseId, setExpenseId] = useState(-1)
+    const [purchaseId, setPurchaseId] = useState(-1)
 
     // initial projects load
     useEffect(() => {
@@ -114,7 +114,7 @@ export function useFormCardState() {
             const result = await createExpense(payload)
             const id = result?.Purchase?.Id
             if (id) {
-                setExpenseId(id)
+                setPurchaseId(id)
                 if (backgroundImg) {
                     try { await uploadReceipt(String(id), backgroundImg) }
                     catch (err) { console.error('uploadReceipt error:', err) }
@@ -134,7 +134,7 @@ export function useFormCardState() {
         loading, view, direction,
 
         // form state
-        jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt, expenseId,
+        jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt, purchaseId,
 
         // setters
         setName, setReceiptType, setSelectedJobSite, setPhotos, setReceipt,
