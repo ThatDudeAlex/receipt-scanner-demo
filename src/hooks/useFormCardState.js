@@ -116,7 +116,10 @@ export function useFormCardState() {
             if (id) {
                 setPurchaseId(id)
                 if (backgroundImg) {
-                    try { await uploadReceipt(String(id), backgroundImg) }
+                    try {
+                        const { accessToken } = await getTokens()
+                        await uploadReceipt(String(id), backgroundImg, accessToken)
+                    }
                     catch (err) { console.error('uploadReceipt error:', err) }
                     finally { setBackgroundImg(null) }
                 }

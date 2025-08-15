@@ -44,7 +44,7 @@ async function blobToBase64(blob) {
     return btoa(binary);
 }
 
-export async function uploadReceipt(purchaseId, imgBlob) {
+export async function uploadReceipt(purchaseId, imgBlob, accessToken) {
     const imgBase64 = await blobToBase64(imgBlob);
 
     const res = await fetch(`${basePath}uploadReceipt`, {
@@ -54,7 +54,8 @@ export async function uploadReceipt(purchaseId, imgBlob) {
             purchaseId: String(purchaseId),
             fileName: 'receipt.jpg',
             contentType: 'image/jpeg',
-            imgBase64
+            imgBase64,
+            accessToken
         })
     });
 

@@ -1,6 +1,5 @@
 const axios = require('axios')
 const FormData = require('form-data')
-const { getOrRefreshTokens } = require("./getOrRefreshTokens");
 
 
 exports.handler = async function (event) {
@@ -8,14 +7,15 @@ exports.handler = async function (event) {
         return { statusCode: 405, body: 'Method Not Allowed' }
     }
 
-    const { purchaseId, fileName = 'receipt.jpg', contentType = 'image/jpeg', imgBase64 } = JSON.parse(event.body || '{}')
+    const { purchaseId, fileName = 'receipt.jpg', contentType = 'image/jpeg', imgBase64, accessToken } = JSON.parse(event.body || '{}')
     if (!purchaseId || !imgBase64) {
         return { statusCode: 400, body: JSON.stringify({ error: 'purchaseId and imgBase64 are required' }) }
     }
+    if (!accessToken) {
+        return { statusCode: 400, body: JSON.stringify({ error: 'missing quickbooks accessToken' }) }
+    }
 
     try {
-        const { accessToken } = await getOrRefreshTokens();
-
         const baseUrl = process.env.DEV_BASE_URL
         const realmId = process.env.DEV_REALM_ID
         const minorVersion = '65'
