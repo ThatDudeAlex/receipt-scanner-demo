@@ -8,7 +8,7 @@ export default React.memo(function ReviewInfoView({
     handleBack,
     receipt,
 }) {
-    // Graceful empty state if parsing hasn’t produced a receipt yet
+    // Graceful empty state if parsing hasn’t produced a receipt
     if (!receipt) {
         return (
             <>
