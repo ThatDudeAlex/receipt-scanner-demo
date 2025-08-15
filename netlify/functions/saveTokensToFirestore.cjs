@@ -1,5 +1,4 @@
-const { initializeApp, getApp, getApps } = require('firebase/app');
-const { getFirestore, doc, setDoc } = require('firebase/firestore');
+const admin = require('firebase-admin');
 
 // Initialize Firebase Admin SDK
 if (!admin.apps.length) {
@@ -21,7 +20,7 @@ const QB_DOC_ID = process.env.QB_DOC_ID
 
 async function saveTokensToFirestore(tokens) {
     const tokenRef = db.collection(QB_COLLECTION).doc(QB_DOC_ID)
-    await setDoc(tokenRef, tokens);
+    await tokenRef.set(tokens);
     console.log('Saved Tokens');
 }
 
