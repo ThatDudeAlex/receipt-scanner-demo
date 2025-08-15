@@ -38,7 +38,7 @@ function StartingView({
       `}</style>
 
             <CardContent sx={{ pb: 2, animation: shake ? 'shake 0.4s' : 'none' }}>
-                <Typography variant="h5" gutterBottom>Receipt Uploader</Typography>
+                <Typography variant="h5" gutterBottom>Receipt Scanner</Typography>
 
                 <FormControl fullWidth margin="normal">
                     <TextField
