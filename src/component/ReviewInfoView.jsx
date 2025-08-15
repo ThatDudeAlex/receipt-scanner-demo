@@ -2,7 +2,7 @@ import React from 'react'
 import {
     Typography, CardContent, CardActions, Button, Divider, Box
 } from '@mui/material'
-import { formatMoney, formatDateTime, safeText } from './utils/formatters'
+import { formatMoney, formatDateTime, safeText } from '../utils/formatters'
 
 export default React.memo(function ReviewInfoView({
     handleBack,
