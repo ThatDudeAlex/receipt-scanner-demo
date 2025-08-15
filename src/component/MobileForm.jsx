@@ -2,7 +2,7 @@ import { Card, Box } from '@mui/material'
 import { motion, AnimatePresence } from 'framer-motion'
 import LoadingSpinner from './LoadingSpinner'
 import StartingView from './StartingView'
-// import PhotoUploaderView from './PhotoUploaderView'
+import PhotoUploaderView from './PhotoUploaderView'
 // import ReviewInfoView from './ReviewInfoView'
 // import UploadedSuccessfully from './UploadedSuccessfully'
 import { useFormCardState } from '../hooks/useFormCardState'
@@ -30,16 +30,16 @@ export default function FormCard() {
                         setName={setName}
                     />
                 )
-            // case 2:
-            //     return (
-            //         <PhotoUploaderView
-            //             photos={photos}
-            //             setPhotos={setPhotos}
-            //             setReceipt={setReceipt}
-            //             onBack={handleBack}
-            //             onReview={handleReview}
-            //         />
-            //     )
+            case 2:
+                return (
+                    <PhotoUploaderView
+                        photos={photos}
+                        setPhotos={setPhotos}
+                        setReceipt={setReceipt}
+                        handleBack={handleBack}
+                        handleReview={handleReview}
+                    />
+                )
             // case 3:
             //     return <ReviewInfoView onBack={handleBack} receipt={receipt} />
             // case 4:
