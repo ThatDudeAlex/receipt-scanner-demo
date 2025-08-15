@@ -89,7 +89,7 @@ export function useFormCardState() {
 
         setLoading(true)
         try {
-            // split selects "id-name" → [id, name]
+            // split selects "id-name" -> [id, name]
             const [receiptId, receiptType] = (selectedReceiptType || '').split('-')
             const [projectId, project] = (selectedJobSite || '').split('-')
 
@@ -116,7 +116,6 @@ export function useFormCardState() {
             if (id) {
                 setExpenseId(id)
                 if (backgroundImg) {
-                    // fire & forget is okay; you can await if you need confirmation
                     try { await uploadReceipt(String(id), backgroundImg) }
                     catch (err) { console.error('uploadReceipt error:', err) }
                     finally { setBackgroundImg(null) }
