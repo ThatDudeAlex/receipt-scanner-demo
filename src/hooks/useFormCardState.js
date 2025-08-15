@@ -52,7 +52,7 @@ export function useFormCardState() {
         setPhotos([])
         setReceipt(null)
         setView(1)
-        setDirection(1) // after setView for last slide behavior
+        setDirection(1)
     }, [])
 
     const handleCompletion = useCallback(() => {
@@ -136,7 +136,7 @@ export function useFormCardState() {
         // form state
         jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt, expenseId,
 
-        // setters (pass to children as needed)
+        // setters
         setName, setReceiptType, setSelectedJobSite, setPhotos, setReceipt,
 
         // actions
