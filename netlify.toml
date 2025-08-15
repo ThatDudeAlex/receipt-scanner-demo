@@ -1,5 +1,5 @@
 [build]
-  publish = "dist"         # Set this to your production output folder (e.g. from Vite)
+  publish = "dist"
   command = "npm install --include=optional && npm run build"
 
 
