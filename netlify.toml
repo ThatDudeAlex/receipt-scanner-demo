@@ -1,2 +1,14 @@
+[build]
+  publish = "dist"         # Set this to your production output folder (e.g. from Vite)
+  command = "npm install --include=optional && npm run build"
+
+
 [functions]
   directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["sharp", "canvas", "pdf.js-extract"]
+  included_files = ["node_modules/sharp/**/*", "node_modules/canvas/**/*", "node_modules/pdf.js-extract/**/*"]
+
+[dev]
+  functions = "netlify/functions"
+
