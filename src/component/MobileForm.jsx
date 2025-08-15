@@ -4,13 +4,13 @@ import LoadingSpinner from './LoadingSpinner'
 import StartingView from './StartingView'
 import PhotoUploaderView from './PhotoUploaderView'
 import ReviewInfoView from './ReviewInfoView'
-// import UploadedSuccessfully from './UploadedSuccessfully'
+import UploadedSuccessfully from './UploadedSuccessfully'
 import { useFormCardState } from '../hooks/useFormCardState'
 
 export default function FormCard() {
     const {
         loading, view, direction,
-        jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt,
+        jobSites, name, selectedReceiptType, selectedJobSite, photos, receipt, expenseId,
         setName, setReceiptType, setSelectedJobSite, setPhotos, setReceipt,
         handleBack, handleForward, handleReview, handleCompletion, submitForm,
     } = useFormCardState()
@@ -42,8 +42,8 @@ export default function FormCard() {
                 )
             case 3:
                 return <ReviewInfoView handleBack={handleBack} receipt={receipt} />
-            // case 4:
-            //     return <UploadedSuccessfully isSubmitting={loading} onDone={handleCompletion} />
+            case 4:
+                return <UploadedSuccessfully isSubmitting={loading} showId={expenseId} onDone={handleCompletion} />
             default:
                 return null
         }
